@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "Coin Nine App",
+    "iconUrl": "https://coin-nine-miniapp-gvnp.vercel.app/favicon.png",
+    "homeUrl": "https://coin-nine-miniapp-gvnp.vercel.app",
+    "imageUrl": "https://coin-nine-miniapp-gvnp.vercel.app/opengraph-image.png",
+    "buttonTitle": "Launch App",
+    "splashImageUrl": "https://coin-nine-miniapp-gvnp.vercel.app/splash.png",
+    "splashBackgroundColor": "#ffffff",
+    "webhookUrl": "https://coin-nine-miniapp-gvnp.vercel.app/api/webhook"
+  }
+}
