@@ -1,6 +1,0 @@
-{
-  "name": "COIN NINE",
-  "description": "Create tokens and earn 100 C9 rewards.",
-  "icon": "/favicon.png",
-  "entrypoint": "https://your-vercel-url.vercel.app"
-}
