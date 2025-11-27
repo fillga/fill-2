@@ -9,76 +9,71 @@ export default function Home() {
 
   useEffect(() => {
     const load = async () => {
-      // 1. Beritahu Farcaster bahwa aplikasi siap (Loading spinner hilang)
+      // Memberitahu Farcaster bahwa app sudah siap
       sdk.actions.ready();
       
-      // 2. Ambil data context (siapa user yang membuka)
+      // Mengambil data user
       const context = await sdk.context;
       if (context && context.user) {
         setUser(context.user);
       }
     };
 
-    // Cek jika kita berada di lingkungan Farcaster
     if (sdk && !isSDKLoaded) {
       setIsSDKLoaded(true);
       load();
     }
   }, [isSDKLoaded]);
 
-  // Fungsi untuk menutup aplikasi
   const closeApp = useCallback(() => {
     sdk.actions.close();
   }, []);
 
   if (!isSDKLoaded) {
-    return <div>Loading App...</div>;
+    return <div style={{ padding: "20px" }}>Loading...</div>;
   }
 
   return (
     <div style={{ 
-      padding: "20px", 
-      textAlign: "center", 
-      fontFamily: "sans-serif",
-      backgroundColor: "#f0f0f0",
-      minHeight: "100vh"
+      fontFamily: 'sans-serif', 
+      textAlign: 'center', 
+      padding: '20px',
+      maxWidth: '400px',
+      margin: '0 auto'
     }}>
-      <h1>🪙 Coin Nine</h1>
+      <h1>Coin Nine 🪙</h1>
       
       <div style={{ 
-        background: "white", 
-        padding: "20px", 
-        borderRadius: "12px",
-        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-        marginTop: "20px"
+        border: '1px solid #ddd', 
+        borderRadius: '12px', 
+        padding: '20px', 
+        margin: '20px 0',
+        backgroundColor: '#f9f9f9'
       }}>
         {user ? (
           <>
             <img 
               src={user.pfpUrl} 
               alt="Profile" 
-              style={{ width: "60px", borderRadius: "50%", marginBottom: "10px" }}
+              style={{ width: '60px', borderRadius: '50%', marginBottom: '10px' }}
             />
-            <h3>Halo, {user.username}! 👋</h3>
-            <p>FID Kamu: {user.fid}</p>
-            <p style={{ color: "green", fontWeight: "bold" }}>Status: Terhubung ke Farcaster</p>
+            <h3>Halo, {user.username}!</h3>
+            <p>FID: {user.fid}</p>
           </>
         ) : (
-          <p>Membuka di Browser biasa (Bukan di Warpcast)</p>
+          <p>Membuka di luar Farcaster.</p>
         )}
       </div>
 
       <button 
         onClick={closeApp}
         style={{
-          marginTop: "30px",
-          padding: "12px 24px",
-          backgroundColor: "#855DCD",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          fontSize: "16px",
-          cursor: "pointer"
+          padding: '10px 20px',
+          background: '#000',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer'
         }}
       >
         Tutup Aplikasi
