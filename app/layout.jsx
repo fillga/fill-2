@@ -1,18 +1,19 @@
-import React from 'react';
-
-// Jika Anda memiliki file CSS global, hilangkan tanda komentar (//) di baris bawah ini:
-// import './globals.css';
+import { Web3Provider } from './Web3Provider'
+import "./globals.css";
 
 export const metadata = {
-  title: "Coin Nine",
-  description: "Aplikasi launch base coin Next.js",
+  title: "Coin Launcher",
+  description: "Mini App peluncuran koin",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, padding: 0, fontFamily: 'sans-serif' }}>
-        {children}
+      <body>
+        {/* Kita bungkus aplikasi di sini */}
+        <Web3Provider>
+          {children}
+        </Web3Provider>
       </body>
     </html>
   );
